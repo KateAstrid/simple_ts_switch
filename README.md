@@ -2,12 +2,11 @@ Hey people,
 
 This is an attempt to create a small library that replaces the default `switch` from js.
 
-The `simpleSwitch` function has four arguments:
+The `simpleSwitch` function has three arguments:
 
-- a value that needs to be compared;
-- an object of cases;
-- the default value (optional);
-- an array of cases that should have `continue` option. By default each branch has a `break` statement.
+- a value that needs to be compared <string>;
+- an object of cases <Record<string, T>>;
+- the default value (optional) <T>.
 
 The object of cases should have the following structure:
 
@@ -19,6 +18,8 @@ The object of cases should have the following structure:
 }
 ```
 
+There is always a break after the first found case.
+
 Usage example:
 
 ```
@@ -29,8 +30,7 @@ const fruitColor = simpleSwitch<string>(
     banana: "yellow",
     grape: "purple",
   },
-  "unknownFruit",
-  ["banana", "grape"]
+  "unknownFruit"
 );
 
 console.log(fruitColor); // "red"
